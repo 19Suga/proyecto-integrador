@@ -6,6 +6,14 @@ function App() {
     { id: 2, texto: 'Crear repositorio del proyecto', completada: true },
   ])
 
+  const eliminarTarea = (id) => {
+    const tareasRestantes = tareas.filter(
+      (tarea) => tarea.id !== id
+    )
+
+    setTareas(tareasRestantes)
+  }
+
   return (
     <main>
       <h1>TaskFlow</h1>
@@ -20,6 +28,10 @@ function App() {
           <span>
             {tarea.completada ? '✓' : '○'} {tarea.texto}
           </span>
+
+          <button onClick={() => eliminarTarea(tarea.id)}>
+            Eliminar
+          </button>
         </div>
       ))}
 
