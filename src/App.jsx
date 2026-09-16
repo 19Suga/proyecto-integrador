@@ -12,6 +12,7 @@ function App() {
       <h2>Gestor de Tareas - Proyecto Integrador</h2>
 
       <p>Proyecto Integrador - Práctica Git y GitHub</p>
+      <p>Versión estable de TaskFlow</p>
 
       <h3>Mis tareas</h3>
 
