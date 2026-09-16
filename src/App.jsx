@@ -6,6 +6,21 @@ function App() {
     { id: 2, texto: 'Crear repositorio del proyecto', completada: true },
   ])
 
+  const [nuevaTarea, setNuevaTarea] = useState('')
+
+  const agregarTarea = () => {
+    if (nuevaTarea.trim() === '') return
+
+    const tarea = {
+      id: Date.now(),
+      texto: nuevaTarea,
+      completada: false,
+    }
+
+    setTareas([...tareas, tarea])
+    setNuevaTarea('')
+  }
+
   return (
     <main>
       <h1>TaskFlow</h1>
@@ -13,6 +28,19 @@ function App() {
 
       <p>Proyecto Integrador - Práctica Git y GitHub</p>
       <p>Versión estable de TaskFlow</p>
+
+      <h3>Nueva tarea</h3>
+
+      <input
+        type="text"
+        placeholder="Escribe una tarea"
+        value={nuevaTarea}
+        onChange={(e) => setNuevaTarea(e.target.value)}
+      />
+
+      <button onClick={agregarTarea}>
+        Agregar
+      </button>
 
       <h3>Mis tareas</h3>
       {tareas.length === 0 && (
