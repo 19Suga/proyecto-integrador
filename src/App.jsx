@@ -21,6 +21,20 @@ function App() {
     setNuevaTarea('')
   }
 
+  const completarTarea = (id) => {
+    const tareasActualizadas = tareas.map((tarea) =>
+      tarea.id === id
+        ? { ...tarea, completada: !tarea.completada }
+        : tarea
+    )
+
+    setTareas(tareasActualizadas)
+  }
+
+  const tareasCompletadas = tareas.filter(
+    (tarea) => tarea.completada
+  ).length
+
   return (
     <main>
       <h1>TaskFlow</h1>
@@ -48,13 +62,26 @@ function App() {
       )}
       {tareas.map((tarea) => (
         <div key={tarea.id}>
-          <span>
-            {tarea.completada ? '✓' : '○'} {tarea.texto}
+          <input
+            type="checkbox"
+            checked={tarea.completada}
+            onChange={() => completarTarea(tarea.id)}
+          />
+
+          <span
+            style={{
+              textDecoration: tarea.completada
+                ? 'line-through'
+                : 'none'
+            }}
+          >
+            {tarea.texto}
           </span>
         </div>
       ))}
 
       <p>Total de tareas registradas: {tareas.length}</p>
+      <p>Completadas: {tareasCompletadas}</p>
     </main>
   )
 }
