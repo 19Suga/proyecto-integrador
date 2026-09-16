@@ -15,7 +15,9 @@ function App() {
       <p>Versión estable de TaskFlow</p>
 
       <h3>Mis tareas</h3>
-
+      {tareas.length === 0 && (
+        <p>No hay tareas registradas.</p>
+      )}
       {tareas.map((tarea) => (
         <div key={tarea.id}>
           <span>
