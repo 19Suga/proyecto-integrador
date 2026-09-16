@@ -24,9 +24,10 @@ function App() {
   return (
     <main>
       <h1>TaskFlow</h1>
-      <h2>Gestor de Tareas</h2>
+      <h2>Gestor de Tareas - Proyecto Integrador</h2>
 
       <p>Proyecto Integrador - Práctica Git y GitHub</p>
+      <p>Versión estable de TaskFlow</p>
 
       <h3>Nueva tarea</h3>
 
