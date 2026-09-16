@@ -31,6 +31,14 @@ function App() {
     setTareas(tareasActualizadas)
   }
 
+  const eliminarTarea = (id) => {
+    const tareasRestantes = tareas.filter(
+      (tarea) => tarea.id !== id
+    )
+
+    setTareas(tareasRestantes)
+  }
+
   const tareasCompletadas = tareas.filter(
     (tarea) => tarea.completada
   ).length
@@ -57,9 +65,11 @@ function App() {
       </button>
 
       <h3>Mis tareas</h3>
+
       {tareas.length === 0 && (
         <p>No hay tareas registradas.</p>
       )}
+
       {tareas.map((tarea) => (
         <div key={tarea.id}>
           <input
@@ -77,6 +87,10 @@ function App() {
           >
             {tarea.texto}
           </span>
+
+          <button onClick={() => eliminarTarea(tarea.id)}>
+            Eliminar
+          </button>
         </div>
       ))}
 
