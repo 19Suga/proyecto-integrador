@@ -1,4 +1,4 @@
-# TaskFlow - Proyecto Integrador
+# 19Suga - Proyecto Integrador
 
 Aplicación web sencilla para la gestión de tareas desarrollada con React.
 
